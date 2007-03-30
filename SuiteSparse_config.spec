@@ -1,4 +1,5 @@
-Summary:	UFconfig
+Summary:	UFconfig development files
+Summary(pl.UTF-8):	Pliki programistyczne UFconfig
 Name:		UFconfig
 Version:	2.4.0
 Release:	0.2
@@ -11,7 +12,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 UFconfig is required by nearly all sparse matrix packages that are
-authored by Timothy A. Davis
+authored by Timothy A. Davis.
+
+%description -l pl.UTF-8
+UFconfig jest wymagany przez prawie wszystkie pakiety do obliczeń na
+macierzach rzadkich autorstwa Timothy'ego A. Davisa.
 
 %prep
 %setup -q -n %{name}
