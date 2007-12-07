@@ -2,7 +2,7 @@ Summary:	UFconfig development files
 Summary(pl.UTF-8):	Pliki programistyczne UFconfig
 Name:		UFconfig
 Version:	2.4.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Development
 Source0:	http://www.cise.ufl.edu/research/sparse/UFconfig/%{name}-%{version}.tar.gz
