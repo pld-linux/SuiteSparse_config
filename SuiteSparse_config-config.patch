@@ -1,7 +1,6 @@
-diff -ur UFconfig/UFconfig.mk UFconfig-config/UFconfig.mk
---- UFconfig/UFconfig.mk	2006-12-12 19:52:47.000000000 +0100
-+++ UFconfig-config/UFconfig.mk	2007-12-07 02:27:46.000000000 +0100
-@@ -43,7 +43,7 @@
+--- UFconfig/UFconfig.mk.orig	2007-10-24 15:55:44.000000000 +0200
++++ UFconfig/UFconfig.mk	2008-01-04 21:27:16.431626182 +0100
+@@ -44,7 +44,7 @@
  MV = mv -f
  
  # Fortran compiler (not normally required)
@@ -10,16 +9,16 @@ diff -ur UFconfig/UFconfig.mk UFconfig-config/UFconfig.mk
  F77FLAGS = -O
  F77LIB =
  
-@@ -73,7 +73,7 @@
- # These settings will probably not work, since there is no fixed convention for
- # naming the BLAS and LAPACK library (*.a or *.so) files.  Assume the Goto
- # BLAS are available.
--BLAS = -lgoto -lgfortran -lgfortranbegin
+@@ -85,7 +85,7 @@
+ # BLAS = -lgoto -lgfortran -lgfortranbegin
+ 
+ # This is probably slow ... it might connect to the Standard Reference BLAS:
+-BLAS = -lblas -lgfortran -lgfortranbegin
 +BLAS = -lblas
  LAPACK = -llapack
  
  # The BLAS might not contain xerbla, an error-handling routine for LAPACK and
-@@ -102,8 +102,8 @@
+@@ -114,8 +114,8 @@
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
  # CHOLMOD with -DNPARTITION if you do not wish to use METIS.
