@@ -1,6 +1,7 @@
---- UFconfig/UFconfig.mk.orig	2007-10-24 15:55:44.000000000 +0200
-+++ UFconfig/UFconfig.mk	2008-01-04 21:27:16.431626182 +0100
-@@ -44,7 +44,7 @@
+diff -burNp UFconfig/UFconfig.mk UFconfig-dud/UFconfig.mk
+--- UFconfig/UFconfig.mk	2008-09-22 20:19:37.000000000 +0200
++++ UFconfig-dud/UFconfig.mk	2009-01-23 12:25:23.482152935 +0100
+@@ -48,7 +48,7 @@ RM = rm -f
  MV = mv -f
  
  # Fortran compiler (not normally required)
@@ -9,16 +10,16 @@
  F77FLAGS = -O
  F77LIB =
  
-@@ -85,7 +85,7 @@
- # BLAS = -lgoto -lgfortran -lgfortranbegin
+@@ -89,7 +89,7 @@ MEX = mex -O -largeArrayDims -lmwlapack 
+ # BLAS = -lgoto -lgfortran -lgfortranbegin -lg2c
  
  # This is probably slow ... it might connect to the Standard Reference BLAS:
--BLAS = -lblas -lgfortran -lgfortranbegin
+-BLAS = -lblas -lgfortran -lgfortranbegin -lg2c
 +BLAS = -lblas
  LAPACK = -llapack
  
- # The BLAS might not contain xerbla, an error-handling routine for LAPACK and
-@@ -114,8 +114,8 @@
+ # Using non-optimized versions:
+@@ -122,8 +122,8 @@ XERBLA = 
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
  # CHOLMOD with -DNPARTITION if you do not wish to use METIS.
