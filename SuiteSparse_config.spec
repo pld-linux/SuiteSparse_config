@@ -1,12 +1,12 @@
 Summary:	UFconfig development files
 Summary(pl.UTF-8):	Pliki programistyczne UFconfig
 Name:		UFconfig
-Version:	3.2.0
+Version:	3.5.0
 Release:	1
 License:	LGPL
 Group:		Development
 Source0:	http://www.cise.ufl.edu/research/sparse/UFconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	c1bc84f1ca8a2fb8168f8c0706897e6c
+# Source0-md5:	526413bbbc94f987cf79619d9110bab4
 Patch0:		%{name}-config.patch
 URL:		http://www.cise.ufl.edu/research/sparse/UFconfig/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

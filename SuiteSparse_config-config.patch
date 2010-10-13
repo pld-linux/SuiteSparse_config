@@ -10,15 +10,6 @@ diff -burNp UFconfig/UFconfig.mk UFconfig-dud/UFconfig.mk
  F77FLAGS = -O
  F77LIB =
  
-@@ -89,7 +89,7 @@ MEX = mex -O -largeArrayDims -lmwlapack 
- # BLAS = -lgoto -lgfortran -lgfortranbegin -lg2c
- 
- # This is probably slow ... it might connect to the Standard Reference BLAS:
--BLAS = -lblas -lgfortran -lgfortranbegin -lg2c
-+BLAS = -lblas
- LAPACK = -llapack
- 
- # Using non-optimized versions:
 @@ -122,8 +122,8 @@ XERBLA = 
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
