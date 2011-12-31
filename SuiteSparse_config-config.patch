@@ -1,15 +1,6 @@
 diff -burNp UFconfig/UFconfig.mk UFconfig-dud/UFconfig.mk
 --- UFconfig/UFconfig.mk	2008-09-22 20:19:37.000000000 +0200
 +++ UFconfig-dud/UFconfig.mk	2009-01-23 12:25:23.482152935 +0100
-@@ -48,7 +48,7 @@ RM = rm -f
- MV = mv -f
- 
- # Fortran compiler (not normally required)
--F77 = f77
-+F77 = gfortran
- F77FLAGS = -O
- F77LIB =
- 
 @@ -122,8 +122,8 @@ XERBLA = 
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
