@@ -1,7 +1,24 @@
-diff -burNp UFconfig/UFconfig.mk UFconfig-dud/UFconfig.mk
 --- UFconfig/UFconfig.mk	2008-09-22 20:19:37.000000000 +0200
 +++ UFconfig-dud/UFconfig.mk	2009-01-23 12:25:23.482152935 +0100
-@@ -122,8 +122,8 @@ XERBLA = 
+@@ -53,7 +53,7 @@
+ # default make environment.
+ 
+ # C and C++ compiler flags.  The first three are standard for *.c and *.cpp
+-CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC
++CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -fPIC
+ 
+ # ranlib, and ar, for generating libraries.  If you don't need ranlib,
+ # just change it to RANLAB = echo
+@@ -67,7 +67,7 @@
+ 
+ # Fortran compiler (not required for 'make' or 'make library')
+ F77 = gfortran
+-F77FLAGS = $(FFLAGS) -O
++F77FLAGS = $(FFLAGS)
+ F77LIB =
+ 
+ # C and Fortran libraries
+@@ -148,8 +148,8 @@
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
  # CHOLMOD with -DNPARTITION if you do not wish to use METIS.
@@ -10,5 +27,5 @@ diff -burNp UFconfig/UFconfig.mk UFconfig-dud/UFconfig.mk
 +METIS_PATH = /usr/include/metis
 +METIS = -lmetis
  
- # If you use CHOLMOD_CONFIG = -DNPARTITION then you must use the following
- # options:
+ #------------------------------------------------------------------------------
+ # UMFPACK configuration:
