@@ -1,12 +1,12 @@
 Summary:	UFconfig development files
 Summary(pl.UTF-8):	Pliki programistyczne UFconfig
 Name:		UFconfig
-Version:	3.7.0
+Version:	3.7.1
 Release:	1
 License:	no restrictions
 Group:		Development
 Source0:	http://www.cise.ufl.edu/research/sparse/UFconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	ab8c355d683e8c5597a0824b32704c70
+# Source0-md5:	145b8126b7ee957d1ea6b401be0bf798
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-shared.patch
 URL:		http://www.cise.ufl.edu/research/sparse/UFconfig/
