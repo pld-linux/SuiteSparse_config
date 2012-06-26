@@ -1,43 +1,46 @@
---- UFconfig/Makefile.orig	2011-12-14 19:09:00.000000000 +0100
-+++ UFconfig/Makefile	2012-01-09 16:45:18.549721061 +0100
-@@ -8,15 +8,13 @@
+--- SuiteSparse_config/Makefile.orig	2012-05-27 00:53:19.000000000 +0200
++++ SuiteSparse_config/Makefile	2012-06-26 19:54:44.061969831 +0200
+@@ -8,17 +8,15 @@
  
- include UFconfig.mk
+ include SuiteSparse_config.mk
  
--ccode: libufconfig.a
-+ccode: libufconfig.la
+-ccode: libsuitesparseconfig.a
++ccode: libsuitesparseconfig.la
  
--all: libufconfig.a
-+all: libufconfig.la
+-all: libsuitesparseconfig.a
++all: libsuitesparseconfig.la
  
--libufconfig.a: UFconfig.c UFconfig.h
--	$(CC) $(CF) -c UFconfig.c
--	$(ARCHIVE) libufconfig.a UFconfig.o
--	$(RANLIB) libufconfig.a
--	- $(RM) UFconfig.o
-+libufconfig.la: UFconfig.c UFconfig.h
-+	libtool --mode=compile --tag=CC $(CC) $(CF) -c UFconfig.c
-+	libtool --mode=link --tag=CC $(CC) $(LDFLAGS) $(CFLAGS) -o libufconfig.la UFconfig.lo -rpath $(INSTALL_LIB)
+-library: libsuitesparseconfig.a
++library: libsuitesparseconfig.la
+ 
+-libsuitesparseconfig.a: SuiteSparse_config.c SuiteSparse_config.h
+-	$(CC) $(CF) -c SuiteSparse_config.c
+-	$(ARCHIVE) libsuitesparseconfig.a SuiteSparse_config.o
+-	$(RANLIB) libsuitesparseconfig.a
+-	- $(RM) SuiteSparse_config.o
++libsuitesparseconfig.la: SuiteSparse_config.c SuiteSparse_config.h
++	libtool --mode=compile --tag=CC $(CC) $(CF) -c SuiteSparse_config.c
++	libtool --mode=link --tag=CC $(CC) $(LDFLAGS) $(CFLAGS) -o libsuitesparseconfig.la SuiteSparse_config.lo -lrt -rpath $(INSTALL_LIB)
  
  distclean: purge
  
-@@ -28,14 +26,12 @@
+@@ -30,14 +28,12 @@
  
- # install UFconfig
+ # install SuiteSparse_config
  install:
--	$(CP) libufconfig.a $(INSTALL_LIB)/libufconfig.$(VERSION).a
--	( cd $(INSTALL_LIB) ; ln -sf libufconfig.$(VERSION).a libufconfig.a )
--	$(CP) UFconfig.h $(INSTALL_INCLUDE)
--	chmod 644 $(INSTALL_LIB)/libufconfig*.a
--	chmod 644 $(INSTALL_INCLUDE)/UFconfig.h
-+	libtool --mode=install $(CP) libufconfig.la $(DESTDIR)$(INSTALL_LIB)
-+	$(CP) UFconfig.h $(DESTDIR)$(INSTALL_INCLUDE)
-+	chmod 644 $(DESTDIR)$(INSTALL_INCLUDE)/UFconfig.h
+-	$(CP) libsuitesparseconfig.a $(INSTALL_LIB)/libsuitesparseconfig.$(VERSION).a
+-	( cd $(INSTALL_LIB) ; ln -sf libsuitesparseconfig.$(VERSION).a libsuitesparseconfig.a )
+-	$(CP) SuiteSparse_config.h $(INSTALL_INCLUDE)
+-	chmod 644 $(INSTALL_LIB)/libsuitesparseconfig*.a
+-	chmod 644 $(INSTALL_INCLUDE)/SuiteSparse_config.h
++	libtool --mode=install $(CP) libsuitesparseconfig.la $(DESTDIR)$(INSTALL_LIB)
++	$(CP) SuiteSparse_config.h $(DESTDIR)$(INSTALL_INCLUDE)
++	chmod 644 $(DESTDIR)$(INSTALL_INCLUDE)/SuiteSparse_config.h
  
- # uninstall UFconfig
+ # uninstall SuiteSparse_config
  uninstall:
--	$(RM) $(INSTALL_LIB)/libufconfig*.a
--	$(RM) $(INSTALL_INCLUDE)/UFconfig.h
-+	$(RM) $(DESTDIR)$(INSTALL_LIB)/libufconfig.la $(DESTDIR)$(INSTALL_LIB)/libufconfig.so* $(DESTDIR)$(INSTALL_LIB)/libufconfig.a
-+	$(RM) $(DESTDIR)$(INSTALL_INCLUDE)/UFconfig.h
+-	$(RM) $(INSTALL_LIB)/libsuitesparseconfig*.a
+-	$(RM) $(INSTALL_INCLUDE)/SuiteSparse_config.h
++	$(RM) $(DESTDIR)$(INSTALL_LIB)/libsuitesparseconfig.la
++	$(RM) $(DESTDIR)$(INSTALL_INCLUDE)/SuiteSparse_config.h
  

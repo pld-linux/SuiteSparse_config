@@ -1,61 +1,65 @@
-Summary:	UFconfig development files
-Summary(pl.UTF-8):	Pliki programistyczne UFconfig
-Name:		UFconfig
-Version:	3.7.1
+Summary:	SuiteSparse_config development files
+Summary(pl.UTF-8):	Pliki programistyczne SuiteSparse_config
+Name:		SuiteSparse_config
+Version:	4.0.0
 Release:	1
 License:	no restrictions
 Group:		Development
 Source0:	http://www.cise.ufl.edu/research/sparse/UFconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	145b8126b7ee957d1ea6b401be0bf798
+# Source0-md5:	05ea5b1e08b590bbd51f103584ff243d
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-shared.patch
 URL:		http://www.cise.ufl.edu/research/sparse/UFconfig/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-UFconfig is required by nearly all sparse matrix packages that are
-authored by Timothy A. Davis.
+SuiteSparse_config is required by nearly all sparse matrix packages
+that are authored by Timothy A. Davis.
+
+Before version 4, SuiteSparse_config used to be named UFconfig.
 
 %description -l pl.UTF-8
-UFconfig jest wymagany przez prawie wszystkie pakiety do obliczeń na
-macierzach rzadkich autorstwa Timothy'ego A. Davisa.
+SuiteSparse_config jest wymagany przez prawie wszystkie pakiety do
+obliczeń na macierzach rzadkich autorstwa Timothy'ego A. Davisa.
+
+SuiteSparse_concig przed wersją 4 nazywał się UFconfig.
 
 %package libs
-Summary:	UFconfig shared library
-Summary(pl.UTF-8):	Biblioteka współdzielona UFconfig
+Summary:	SuiteSparse_config shared library
+Summary(pl.UTF-8):	Biblioteka współdzielona SuiteSparse_config
 Group:		Libraries
 
 %description libs
-UFconfig shared library, containing malloc/free wrappers.
+SuiteSparse_config shared library, containing malloc/free wrappers.
 
 %description libs -l pl.UTF-8
-Biblioteka współdzielona UFconfig, zawierająca funkcje obudowujące
-malloc/free.
+Biblioteka współdzielona SuiteSparse_config, zawierająca funkcje
+obudowujące malloc/free.
 
 %package devel
-Summary:	Development files for UFconfig library
-Summary(pl.UTF-8):	Pliki programistyczne biblioteki UFconfig
+Summary:	Development files for SuiteSparse_config library
+Summary(pl.UTF-8):	Pliki programistyczne biblioteki SuiteSparse_config
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	%{name}-libs = %{version}-%{release}
 
 %description devel
-Development files for UFconfig library.
+Development files for SuiteSparse_config library.
 
 %description devel -l pl.UTF-8
-Pliki programistyczne biblioteki UFconfig.
+Pliki programistyczne biblioteki SuiteSparse_config.
 
 %package static
-Summary:	UFconfig static library
-Summary(pl.UTF-8):	Biblioteka statyczna UFconfig
+Summary:	SuiteSparse_config static library
+Summary(pl.UTF-8):	Biblioteka statyczna SuiteSparse_config
 Group:		Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-UFconfig static library.
+SuiteSparse_config static library.
 
 %description static -l pl.UTF-8
-Biblioteka statyczna UFconfig.
+Biblioteka statyczna SuiteSparse_config.
 
 %prep
 %setup -q -n %{name}
@@ -77,7 +81,7 @@ install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_datadir}/misc}
 	DESTDIR=$RPM_BUILD_ROOT \
 	INSTALL_LIB=%{_libdir}
 
-cp -a UFconfig.mk $RPM_BUILD_ROOT%{_datadir}/misc
+cp -a SuiteSparse_config.mk $RPM_BUILD_ROOT%{_datadir}/misc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,19 +92,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.txt
-%{_includedir}/UFconfig.h
-%{_datadir}/misc/UFconfig.mk
+%{_includedir}/SuiteSparse_config.h
+%{_datadir}/misc/SuiteSparse_config.mk
 
 %files libs
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libufconfig.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libufconfig.so.0
+%attr(755,root,root) %{_libdir}/libsuitesparseconfig.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libsuitesparseconfig.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libufconfig.so
-%{_libdir}/libufconfig.la
+%attr(755,root,root) %{_libdir}/libsuitesparseconfig.so
+%{_libdir}/libsuitesparseconfig.la
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libufconfig.a
+%{_libdir}/libsuitesparseconfig.a

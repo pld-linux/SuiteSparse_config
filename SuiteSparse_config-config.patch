@@ -1,15 +1,15 @@
---- UFconfig/UFconfig.mk.orig	2011-12-08 20:19:48.000000000 +0100
-+++ UFconfig/UFconfig.mk	2012-01-09 16:20:56.743005449 +0100
-@@ -53,7 +53,7 @@
- # default make environment.
- 
+--- SuiteSparse_config/SuiteSparse_config.mk.orig	2012-06-01 21:25:05.000000000 +0200
++++ SuiteSparse_config/SuiteSparse_config.mk	2012-06-26 19:19:18.178725712 +0200
+@@ -60,7 +60,7 @@
  # C and C++ compiler flags.  The first three are standard for *.c and *.cpp
--CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC
+ # Add -DNTIMER if you do use any timing routines (otherwise -lrt is required).
+ # CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC -DNTIMER
+-  CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC
 +CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -fPIC
  
  # ranlib, and ar, for generating libraries.  If you don't need ranlib,
  # just change it to RANLAB = echo
-@@ -67,15 +67,16 @@
+@@ -73,7 +73,7 @@
  
  # Fortran compiler (not required for 'make' or 'make library')
  F77 = gfortran
@@ -17,8 +17,9 @@
 +F77FLAGS = $(FFLAGS)
  F77LIB =
  
- # C and Fortran libraries
- LIB = -lm
+ # C and Fortran libraries.  Remove -lrt if you don't have it.
+@@ -82,8 +82,9 @@
+ # LIB = -lm
  
  # For "make install"
 -INSTALL_LIB = /usr/local/lib
@@ -27,9 +28,9 @@
 +INSTALL_LIB = $(INSTALL_PREFIX)/lib
 +INSTALL_INCLUDE = $(INSTALL_PREFIX)/include
  
- # For compiling MATLAB mexFunctions (MATLAB 7.5 or later)
- MEX = mex -O -largeArrayDims -lmwlapack -lmwblas
-@@ -148,8 +149,8 @@
+ # Which version of MAKE you are using (default is "make")
+ # MAKE = make
+@@ -162,8 +163,8 @@
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
  # CHOLMOD with -DNPARTITION if you do not wish to use METIS.
