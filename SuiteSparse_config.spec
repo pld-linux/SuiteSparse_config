@@ -1,12 +1,12 @@
 Summary:	SuiteSparse_config development files
 Summary(pl.UTF-8):	Pliki programistyczne SuiteSparse_config
 Name:		SuiteSparse_config
-Version:	4.1.0
+Version:	4.2.0
 Release:	1
 License:	no restrictions
 Group:		Development
 Source0:	http://www.cise.ufl.edu/research/sparse/UFconfig/%{name}-%{version}.tar.gz
-# Source0-md5:	af1060a2bdd312571e065dab29cbbb70
+# Source0-md5:	622d5fc700856c5e211bd91a75edb145
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-shared.patch
 URL:		http://www.cise.ufl.edu/research/sparse/UFconfig/
