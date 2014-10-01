@@ -20,7 +20,7 @@
 -	- $(RM) SuiteSparse_config.o
 +libsuitesparseconfig.la: SuiteSparse_config.c SuiteSparse_config.h
 +	libtool --mode=compile --tag=CC $(CC) $(CF) -c SuiteSparse_config.c
-+	libtool --mode=link --tag=CC $(CC) $(LDFLAGS) $(CFLAGS) -o libsuitesparseconfig.la SuiteSparse_config.lo -lrt -rpath $(INSTALL_LIB)
++	libtool --mode=link --tag=CC $(CC) $(LDFLAGS) $(CFLAGS) -o libsuitesparseconfig.la SuiteSparse_config.lo -lrt -lm -rpath $(INSTALL_LIB)
  
  distclean: purge
  

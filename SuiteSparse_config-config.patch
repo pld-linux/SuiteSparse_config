@@ -1,15 +1,15 @@
---- SuiteSparse_config/SuiteSparse_config.mk.orig	2012-06-01 21:25:05.000000000 +0200
-+++ SuiteSparse_config/SuiteSparse_config.mk	2012-06-26 19:19:18.178725712 +0200
-@@ -60,7 +60,7 @@
+--- SuiteSparse_config/SuiteSparse_config.mk.orig	2014-08-16 21:22:58.000000000 +0200
++++ SuiteSparse_config/SuiteSparse_config.mk	2014-10-01 17:06:23.286761684 +0200
+@@ -69,7 +69,7 @@
  # C and C++ compiler flags.  The first three are standard for *.c and *.cpp
  # Add -DNTIMER if you do use any timing routines (otherwise -lrt is required).
  # CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC -DNTIMER
 -  CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC
 +CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -fPIC
+ # for the MKL BLAS:
+ # CF = $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -O3 -fexceptions -fPIC -I$(MKLROOT)/include -D_GNU_SOURCE
  
- # ranlib, and ar, for generating libraries.  If you don't need ranlib,
- # just change it to RANLAB = echo
-@@ -73,7 +73,7 @@
+@@ -84,7 +84,7 @@
  
  # Fortran compiler (not required for 'make' or 'make library')
  F77 = gfortran
@@ -18,7 +18,7 @@
  F77LIB =
  
  # C and Fortran libraries.  Remove -lrt if you don't have it.
-@@ -82,8 +82,9 @@
+@@ -93,8 +93,9 @@
  # LIB = -lm
  
  # For "make install"
@@ -30,7 +30,7 @@
  
  # Which version of MAKE you are using (default is "make")
  # MAKE = make
-@@ -162,8 +163,8 @@
+@@ -210,8 +211,8 @@
  # The path is relative to where it is used, in CHOLMOD/Lib, CHOLMOD/MATLAB, etc.
  # You may wish to use an absolute path.  METIS is optional.  Compile
  # CHOLMOD with -DNPARTITION if you do not wish to use METIS.
